@@ -41,119 +41,103 @@ body {
 <script>
 const questions = [
 {
-q: "1. Find the odd word from the given alternatives.\n\n(A) Flower\n(B) Herb\n(C) Tree\n(D) Shrub\n\nAnswer: (A) Flower\n\nExplanation:\nHerb, Tree, and Shrub are types of plants. Flower is a part of a plant, not a plant category.",
-options: ["A", "B", "C", "D"],
+q: "1. Find the odd word from the given alternatives.\n\n(A) Flower\n(B) Herb\n(C) Tree\n(D) Shrub",
 answer: "A",
 explanation: "Herb, Tree, and Shrub are types of plants. Flower is a part of a plant, not a plant category."
 },
 
 {
-q: "2. Find the odd letters from the given alternatives.\n\n(A) NOPQ\n(B) JKLM\n(C) RSTU\n(D) VWXZ\n\nAnswer: (D) VWXZ\n\nExplanation:\nNOPQ, JKLM, and RSTU are four consecutive letters.\nIn VWXZ, Y is missing, so it is not consecutive.",
-options: ["A", "B", "C", "D"],
+q: "2. Find the odd letters from the given alternatives.\n\n(A) NOPQ\n(B) JKLM\n(C) RSTU\n(D) VWXZ",
 answer: "D",
-explanation: "NOPQ, JKLM, and RSTU are four consecutive letters. In VWXZ, Y is missing, so it is not consecutive."
+explanation: "NOPQ, JKLM, and RSTU are four consecutive letters. In VWXZ, Y is missing."
 },
 
 {
-q: "3. Find the odd number pair from the given alternatives.\n\n(A) (34, 85)\n(B) (85, 136)\n(C) (102, 153)\n(D) (63, 162)\n\nAnswer: (D) (63, 162)\n\nExplanation:\nIn (A), (B), and (C):\nSecond number = First number + 51\n\n34 + 51 = 85\n85 + 51 = 136\n102 + 51 = 153\n\nBut 63 + 51 = 114 (not 162).\nSo (63, 162) is odd.",
-options: ["A", "B", "C", "D"],
+q: "3. Find the odd number pair from the given alternatives.\n\n(A) (34, 85)\n(B) (85, 136)\n(C) (102, 153)\n(D) (63, 162)",
 answer: "D",
-explanation: "In (A), (B), and (C): Second number = First number + 51. But for (63,162), 63+51=114 (not 162)."
+explanation: "In (A), (B), and (C): second number = first number + 51. For (63,162), 63+51=114 (not 162)."
 },
 
 {
-q: "4. If HOUSE is written as FQSUC, then how is CHAIR written in that code?\n\n(A) SBJID\n(B) DIBJS\n(C) SHBGD\n(D) AJYKP\n\nAnswer: (A) SBJID\n\nExplanation:\nThe code reverses the word and shifts letters.\nUsing the same pattern, CHAIR becomes SBJID.",
-options: ["A", "B", "C", "D"],
+q: "4. If HOUSE is written as FQSUC, then how is CHAIR written in that code?",
 answer: "A",
 explanation: "The code reverses the word and shifts letters."
 },
 
 {
-q: "5. If P denotes ÷, Q denotes ×, R denotes + and S denotes −, find the value of:\n\n18 Q 12 P 4 R 5 S 6\n\n(A) 53\n(B) 64\n(C) 81\n(D) 24\n\nAnswer: (A) 53\n\nExplanation:\nReplace symbols:\n\n18 × 12 ÷ 4 + 5 − 6\n\nApply BODMAS:\n\n18 × 12 = 216\n216 ÷ 4 = 54\n54 + 5 = 59\n59 − 6 = 53",
-options: ["A", "B", "C", "D"],
+q: "5. If P denotes ÷, Q denotes ×, R denotes + and S denotes −, find the value of: 18 Q 12 P 4 R 5 S 6",
 answer: "A",
-explanation: "18 × 12 = 216, 216 ÷ 4 = 54, 54 + 5 = 59, 59 − 6 = 53."
+explanation: "18×12=216, 216÷4=54, 54+5=59, 59−6=53."
 },
 
 {
-q: "6. If 4 + 3 = 25 and 8 + 4 = 80, then 3 + 2 = ?\n\n(A) 10\n(B) 15\n(C) 13\n(D) 12\n\nAnswer: (B) 15\n\nExplanation:\nPattern: (a + b) = a × b + a\n\n4 × 3 + 4 = 12 + 4 = 16 (But given 25 — likely pattern is a² + b²)\n\nCheck:\n\n4² + 3² = 16 + 9 = 25\n8² + 4² = 64 + 16 = 80\n\nSo,\n\n3² + 2² = 9 + 4 = 13\n\nCorrect Answer should be (C) 13",
-options: ["A", "B", "C", "D"],
+q: "6. If 4 + 3 = 25 and 8 + 4 = 80, then 3 + 2 = ?",
 answer: "C",
-explanation: "4² + 3² = 25 and 8² + 4² = 80, so rule is sum of squares."
+explanation: "Rule is sum of squares: 3² + 2² = 9 + 4 = 13."
 },
 
 {
-q: "7. Select the related word.\n\nPsychology : Human Being :: Ornithology : ?\n\n(A) Volcanoes\n(B) Birds\n(C) Insects\n(D) Reptiles\n\nAnswer: (B) Birds\n\nExplanation:\nPsychology studies human beings.\nOrnithology studies birds.",
-options: ["A", "B", "C", "D"],
+q: "7. Psychology : Human Being :: Ornithology : ?",
 answer: "B",
-explanation: "Psychology studies human beings. Ornithology studies birds."
+explanation: "Ornithology studies birds."
 },
 
 {
-q: "8. Select the related letters.\n\nEGIK : FHJL :: MOQS : ?\n\n(A) NPRT\n(B) LNOQ\n(C) KMOQ\n(D) NRPT\n\nAnswer: (A) NPRT\n\nExplanation:\nEach letter increases by +1:\n\nE→F\nG→H\nI→J\nK→L\n\nSimilarly:\n\nM→N\nO→P\nQ→R\nS→T",
-options: ["A", "B", "C", "D"],
+q: "8. EGIK : FHJL :: MOQS : ?",
 answer: "A",
 explanation: "Each letter increases by +1."
 },
 
 {
-q: "9. Select the related numbers.\n\n147 : 741 :: 869 : ?\n\n(A) 968\n(B) 896\n(C) 689\n(D) 986\n\nAnswer: (A) 968\n\nExplanation:\n147 is reversed → 741\n869 reversed → 968",
-options: ["A", "B", "C", "D"],
+q: "9. 147 : 741 :: 869 : ?",
 answer: "A",
-explanation: "Reverse the digits."
+explanation: "Reverse digits → 968."
 },
 
 {
-q: "10. Select the missing number.\n8   32   4\n7   ?    5\n2   6    3\n\n(A) 35\n(B) 30\n(C) 20\n(D) 25\n\nAnswer: (A) 35\n\nExplanation:\nPattern: Middle number = Left × Right\n\n8 × 4 = 32\n2 × 3 = 6\n7 × 5 = 35",
-options: ["A", "B", "C", "D"],
+q: "10. Missing number:\n8 32 4\n7 ? 5\n2 6 3",
 answer: "A",
-explanation: "Middle = Left × Right."
+explanation: "Middle = Left × Right (7×5 = 35)."
 },
 
 {
-q: "11. Ramesh starts his journey by walking 2 km towards North. Then he takes a right turn and walks 1 km. Again takes a right turn and walks 2 km. Now which direction is he facing?\n\n(A) West\n(B) South\n(C) East\n(D) North\n\nAnswer: (B) South\n\nExplanation:\nNorth → Right turn → East\nEast → Right turn → South\n\nHe is facing South.",
-options: ["A", "B", "C", "D"],
+q: "11. Direction after North → right → right",
 answer: "B",
 explanation: "North → East → South."
 },
 
 {
-q: "12. Which figure represents the relationship: Birds, Parrots, Bats?\n\nAnswer:\nParrots are a subset of Birds.\nBats are not birds.\n\nSo diagram:\nOne big circle (Birds)\nSmall circle inside (Parrots)\nSeparate circle (Bats)",
-options: ["A", "B", "C", "D"],
+q: "12. Relationship: Birds, Parrots, Bats",
 answer: "C",
 explanation: "Parrots inside Birds; Bats separate."
 },
 
 {
-q: "13. Complete the letter series:\n\nsr_tr_srs_r_srst\n\n(A) tsrtsr\n(B) ttssrr\n(C) strtrs\n(D) tstttr\n\nAnswer: (A) tsrtsr\n\nExplanation:\nThe repeating pattern is s, r, t.",
-options: ["A", "B", "C", "D"],
+q: "13. Complete series: sr_tr_srs_r_srst_",
 answer: "A",
-explanation: "The repeating pattern is s, r, t."
+explanation: "Repeating pattern s, r, t."
 },
 
 {
-q: "14. Find the missing number in the series:\n\n43, 172, 86, 344, ?\n\n(A) 258\n(B) 172\n(C) 129\n(D) 430\n\nAnswer: (B) 172\n\nExplanation:\nPattern: ×4, ÷2, ×4, ÷2\n\n43 × 4 = 172\n172 ÷ 2 = 86\n86 × 4 = 344\n344 ÷ 2 = 172",
-options: ["A", "B", "C", "D"],
+q: "14. Series: 43, 172, 86, 344, ?",
 answer: "B",
-explanation: "×4, ÷2 pattern."
+explanation: "×4, ÷2 pattern → next 172."
 },
 
 {
-q: "15. Select the word which cannot be formed from the letters of \"CHRONOLOGICAL\".\n\n(A) LOGIC\n(B) CALL\n(C) CALICO\n(D) ANALOGY\n\nAnswer: (D) ANALOGY\n\nExplanation:\nThe letter Y is not present in CHRONOLOGICAL.\nSo ANALOGY cannot be formed.",
-options: ["A", "B", "C", "D"],
+q: "15. Cannot be formed from CHRONOLOGICAL",
 answer: "D",
-explanation: "The letter Y is not present in CHRONOLOGICAL."
+explanation: "Letter Y not present."
 }
 ];
 
 const quizDiv = document.getElementById("quiz");
 let totalTime = questions.length * 60;
 
-// Render questions (only questions)
+// render only questions
 questions.forEach((item, index) => {
     let html = `<div class='question'>
-        <p><b>${item.q}</b></p>`;
-    html += `
+        <p><b>${item.q}</b></p>
         <label><input type='radio' name='q${index}' value='A'> A</label><br>
         <label><input type='radio' name='q${index}' value='B'> B</label><br>
         <label><input type='radio' name='q${index}' value='C'> C</label><br>
@@ -163,7 +147,7 @@ questions.forEach((item, index) => {
     quizDiv.innerHTML += html;
 });
 
-// Timer
+// timer
 const timerDiv = document.getElementById("timer");
 
 function updateTimer() {
@@ -180,7 +164,7 @@ function updateTimer() {
 
 setInterval(updateTimer, 1000);
 
-// Submit test and show answers after completion
+// submit and show answers
 function submitTest() {
     let score = 0;
     let answerHTML = "<h3>Answers & Explanation</h3>";
@@ -195,7 +179,7 @@ function submitTest() {
             result.textContent = "✔ Correct";
             result.style.color = "green";
         } else {
-            result.textContent = `✖ Wrong`;
+            result.textContent = "✖ Wrong";
             result.style.color = "red";
         }
 
