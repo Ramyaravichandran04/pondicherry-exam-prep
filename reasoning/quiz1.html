@@ -30,7 +30,7 @@ button {
 <body>
 
 <h2>Reasoning Quiz 1</h2>
-<div class="timer">Time Left: <span id="time"></span> seconds</div>
+<div class="timer">Time Left: <span id="time"></span></div>
 
 <form id="quizForm"></form>
 
@@ -247,7 +247,7 @@ let resultBox = document.getElementById("result");
 let timerDisplay = document.getElementById("time");
 
 let timerInterval;
-let totalTime = 12 * 60;
+let totalTime = 12 * 60; // 12 minutes
 let timeLeft = totalTime;
 
 window.onload = function() {
@@ -271,8 +271,6 @@ function loadQuestions(){
         form.appendChild(div);
     });
 }
-let totalTime = 12 * 60; // 12 minutes
-let timeLeft = totalTime;
 
 function startTimer(){
     updateTimerDisplay();
@@ -291,7 +289,6 @@ function updateTimerDisplay(){
     let seconds = timeLeft % 60;
     timerDisplay.innerText = `${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
 }
-
 
 function submitQuiz(){
 
