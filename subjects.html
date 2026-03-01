@@ -67,6 +67,13 @@ if(subject === "ga") {
     content.innerHTML += 
         `<button onclick="openCurrentAffairs()">Current Affairs</button>`;
 }
+else if(subject === "reasoning"){
+    title.innerText = "Reasoning - Select Test";
+
+    content.innerHTML = `
+        <button onclick="openReasoningIndex()">Reasoning Home</button>
+    `;
+}
 
 function openGA(std) {
     window.location.href = `ga.html?std=${std}`;
@@ -74,6 +81,9 @@ function openGA(std) {
 
 function openCurrentAffairs() {
     window.location.href = `currentaffairs.html`;
+}
+function openReasoningIndex() {
+    window.location.href = "reasoning/index.html";
 }
 
 </script>
