@@ -182,4 +182,176 @@ explanation: `Middle = Left × Right (7×5 = 35).`
 
 {
 question: `11. Direction after North → right → right`,
-opt
+options: [
+"West",
+"South",
+"East",
+"North"
+],
+answer: 1,
+explanation: `North → East → South.`
+},
+
+{
+question: `12. Relationship: Birds, Parrots, Bats`,
+options: [
+"Diagram A",
+"Diagram B",
+"Diagram C",
+"Diagram D"
+],
+answer: 2,
+explanation: `Parrots inside Birds; Bats separate.`
+},
+
+{
+question: `13. Complete the series: sr_tr_srs_r_srst_`,
+options: [
+"tsrtsr",
+"ttssrr",
+"strtrs",
+"tstttr"
+],
+answer: 0,
+explanation: `Repeating pattern s, r, t.`
+},
+
+{
+question: `14. Series: 43, 172, 86, 344, ?`,
+options: [
+"258",
+"172",
+"129",
+"430"
+],
+answer: 1,
+explanation: `×4, ÷2 pattern → next is 172.`
+},
+
+{
+question: `15. Cannot be formed from CHRONOLOGICAL`,
+options: [
+"LOGIC",
+"CALL",
+"CALICO",
+"ANALOGY"
+],
+answer: 3,
+explanation: `Letter Y is not present.`
+}
+
+];
+
+let form = document.getElementById("quizForm");
+let resultBox = document.getElementById("result");
+let timerDisplay = document.getElementById("time");
+
+let timerInterval;
+let totalTime = 12 * 60;
+let timeLeft = totalTime;
+
+window.onload = function() {
+    loadQuestions();
+    startTimer();
+};
+
+function loadQuestions(){
+    form.innerHTML = "";
+    questions.forEach((q, index) => {
+        let div = document.createElement("div");
+        div.classList.add("question");
+        div.innerHTML = `<p>${q.question}</p>`;
+        q.options.forEach((option, i) => {
+            div.innerHTML += `
+            <label>
+                <input type="radio" name="q${index}" value="${i}">
+                ${option}
+            </label><br>`;
+        });
+        form.appendChild(div);
+    });
+}
+let totalTime = 12 * 60; // 12 minutes
+let timeLeft = totalTime;
+
+function startTimer(){
+    updateTimerDisplay();
+    timerInterval = setInterval(()=>{
+        timeLeft--;
+        updateTimerDisplay();
+        if(timeLeft <= 0){
+            clearInterval(timerInterval);
+            submitQuiz();
+        }
+    },1000);
+}
+
+function updateTimerDisplay(){
+    let minutes = Math.floor(timeLeft / 60);
+    let seconds = timeLeft % 60;
+    timerDisplay.innerText = `${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
+}
+
+
+function submitQuiz(){
+
+    clearInterval(timerInterval);
+
+    let score = 0;
+    let correctCount = 0;
+    let wrongCount = 0;
+    let notAnsweredCount = 0;
+
+    questions.forEach((q, index) => {
+
+        let selected = document.querySelector(`input[name="q${index}"]:checked`);
+        let selectedValue = selected ? parseInt(selected.value) : null;
+
+        let questionDiv = document.getElementsByClassName("question")[index];
+        let oldResult = questionDiv.querySelector(".answerResult");
+        if(oldResult) oldResult.remove();
+
+        let resultText = document.createElement("div");
+        resultText.classList.add("answerResult");
+
+        if(selectedValue === null){
+            notAnsweredCount++;
+            resultText.innerHTML = `
+                <p style="color:orange;"><b>Not Answered</b></p>
+                <p><b>Correct Answer:</b> ${q.options[q.answer]}</p>
+                <p><b>Explanation:</b> ${q.explanation}</p>
+            `;
+        }
+        else if(selectedValue === q.answer){
+            score += 1;
+            correctCount++;
+            resultText.innerHTML = `
+                <p style="color:green;"><b>✔ Correct (+1)</b></p>
+                <p><b>Explanation:</b> ${q.explanation}</p>
+            `;
+        }
+        else{
+            wrongCount++;
+            resultText.innerHTML = `
+                <p style="color:red;"><b>✘ Wrong</b></p>
+                <p><b>Correct Answer:</b> ${q.options[q.answer]}</p>
+                <p><b>Explanation:</b> ${q.explanation}</p>
+            `;
+        }
+
+        questionDiv.appendChild(resultText);
+    });
+
+    resultBox.innerHTML = `
+        <div style="background:#f0f0f0; padding:15px; margin-bottom:20px;">
+            <h3>Final Score: ${score} / ${questions.length}</h3>
+            <p>✔ Correct: ${correctCount}</p>
+            <p>✘ Wrong: ${wrongCount}</p>
+            <p>⭕ Not Answered: ${notAnsweredCount}</p>
+        </div>
+    `;
+}
+
+</script>
+</body>
+</html>
