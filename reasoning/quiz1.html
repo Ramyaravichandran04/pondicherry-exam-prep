@@ -49,92 +49,92 @@ explanation: "Herb, Tree, and Shrub are types of plants. Flower is a part of a p
 {
 q: "2. Find the odd letters from the given alternatives.\n\n(A) NOPQ\n(B) JKLM\n(C) RSTU\n(D) VWXZ",
 answer: "D",
-explanation: "NOPQ, JKLM, and RSTU are four consecutive letters. In VWXZ, Y is missing."
+explanation: "NOPQ, JKLM, and RSTU are four consecutive letters. In VWXZ, Y is missing, so it is not consecutive."
 },
 
 {
 q: "3. Find the odd number pair from the given alternatives.\n\n(A) (34, 85)\n(B) (85, 136)\n(C) (102, 153)\n(D) (63, 162)",
 answer: "D",
-explanation: "In (A), (B), and (C): second number = first number + 51. For (63,162), 63+51=114 (not 162)."
+explanation: "Second number = First number + 51 in A, B, C. For (63,162), 63+51=114 (not 162)."
 },
 
 {
-q: "4. If HOUSE is written as FQSUC, then how is CHAIR written in that code?",
+q: "4. If HOUSE is written as FQSUC, then how is CHAIR written in that code?\n\n(A) SBJID\n(B) DIBJS\n(C) SHBGD\n(D) AJYKP",
 answer: "A",
 explanation: "The code reverses the word and shifts letters."
 },
 
 {
-q: "5. If P denotes ÷, Q denotes ×, R denotes + and S denotes −, find the value of: 18 Q 12 P 4 R 5 S 6",
+q: "5. If P denotes ÷, Q denotes ×, R denotes + and S denotes −, find the value of: 18 Q 12 P 4 R 5 S 6\n\n(A) 53\n(B) 64\n(C) 81\n(D) 24",
 answer: "A",
 explanation: "18×12=216, 216÷4=54, 54+5=59, 59−6=53."
 },
 
 {
-q: "6. If 4 + 3 = 25 and 8 + 4 = 80, then 3 + 2 = ?",
+q: "6. If 4 + 3 = 25 and 8 + 4 = 80, then 3 + 2 = ?\n\n(A) 10\n(B) 15\n(C) 13\n(D) 12",
 answer: "C",
 explanation: "Rule is sum of squares: 3² + 2² = 9 + 4 = 13."
 },
 
 {
-q: "7. Psychology : Human Being :: Ornithology : ?",
+q: "7. Select the related word.\n\nPsychology : Human Being :: Ornithology : ?\n\n(A) Volcanoes\n(B) Birds\n(C) Insects\n(D) Reptiles",
 answer: "B",
-explanation: "Ornithology studies birds."
+explanation: "Psychology studies human beings. Ornithology studies birds."
 },
 
 {
-q: "8. EGIK : FHJL :: MOQS : ?",
+q: "8. Select the related letters.\n\nEGIK : FHJL :: MOQS : ?\n\n(A) NPRT\n(B) LNOQ\n(C) KMOQ\n(D) NRPT",
 answer: "A",
 explanation: "Each letter increases by +1."
 },
 
 {
-q: "9. 147 : 741 :: 869 : ?",
+q: "9. Select the related numbers.\n\n147 : 741 :: 869 : ?\n\n(A) 968\n(B) 896\n(C) 689\n(D) 986",
 answer: "A",
-explanation: "Reverse digits → 968."
+explanation: "Just reverse the digits: 869 → 968."
 },
 
 {
-q: "10. Missing number:\n8 32 4\n7 ? 5\n2 6 3",
+q: "10. Select the missing number.\n8   32   4\n7   ?    5\n2   6    3",
 answer: "A",
-explanation: "Middle = Left × Right (7×5 = 35)."
+explanation: "Pattern: middle number = left × right (7×5 = 35)."
 },
 
 {
-q: "11. Direction after North → right → right",
+q: "11. Ramesh starts his journey by walking 2 km towards North. Then he takes a right turn and walks 1 km. Again takes a right turn and walks 2 km. Now which direction is he facing?\n\n(A) West\n(B) South\n(C) East\n(D) North",
 answer: "B",
 explanation: "North → East → South."
 },
 
 {
-q: "12. Relationship: Birds, Parrots, Bats",
+q: "12. Which figure represents the relationship: Birds, Parrots, Bats?",
 answer: "C",
 explanation: "Parrots inside Birds; Bats separate."
 },
 
 {
-q: "13. Complete series: sr_tr_srs_r_srst_",
+q: "13. Complete the letter series:\n\nsr_tr_srs_r_srst",
 answer: "A",
-explanation: "Repeating pattern s, r, t."
+explanation: "Repeating pattern: s, r, t."
 },
 
 {
-q: "14. Series: 43, 172, 86, 344, ?",
+q: "14. Find the missing number in the series:\n\n43, 172, 86, 344, ?",
 answer: "B",
-explanation: "×4, ÷2 pattern → next 172."
+explanation: "Pattern: ×4, ÷2 → next is 172."
 },
 
 {
-q: "15. Cannot be formed from CHRONOLOGICAL",
+q: "15. Select the word which cannot be formed from the letters of \"CHRONOLOGICAL\".\n\n(A) LOGIC\n(B) CALL\n(C) CALICO\n(D) ANALOGY",
 answer: "D",
-explanation: "Letter Y not present."
+explanation: "The letter Y is not present in CHRONOLOGICAL."
 }
 ];
 
 const quizDiv = document.getElementById("quiz");
 let totalTime = questions.length * 60;
 
-// render only questions
+// Render only questions
 questions.forEach((item, index) => {
     let html = `<div class='question'>
         <p><b>${item.q}</b></p>
@@ -147,7 +147,7 @@ questions.forEach((item, index) => {
     quizDiv.innerHTML += html;
 });
 
-// timer
+// Timer display
 const timerDiv = document.getElementById("timer");
 
 function updateTimer() {
@@ -164,7 +164,7 @@ function updateTimer() {
 
 setInterval(updateTimer, 1000);
 
-// submit and show answers
+// Submit test and show answers
 function submitTest() {
     let score = 0;
     let answerHTML = "<h3>Answers & Explanation</h3>";
