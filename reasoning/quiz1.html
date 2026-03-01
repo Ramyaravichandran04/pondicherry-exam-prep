@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Reasoning Quiz - 12 Minutes</title>
+<title>Reasoning Quiz 1</title>
 <style>
 body {
     font-family: Arial, sans-serif;
@@ -19,11 +19,17 @@ button {
     padding: 10px 15px;
     margin-top: 10px;
 }
+.answerResult {
+    margin-top: 10px;
+    padding: 10px;
+    background: #f9f9f9;
+    border-left: 4px solid #007bff;
+}
 </style>
 </head>
 <body>
 
-<h2>REASONING QUIZ</h2>
+<h2>Reasoning Quiz 1</h2>
 <div class="timer">Time Left: <span id="time"></span> seconds</div>
 
 <form id="quizForm"></form>
@@ -34,322 +40,146 @@ button {
 
 <script>
 
-// TOTAL TIME = 12 MINUTES
-let totalTime = 12 * 60;
-let timeLeft = totalTime;
-let timerDisplay = document.getElementById("time");
-let timerInterval;
-
-// QUESTIONS (exact, unchanged)
 const questions = [
 
 {
-question: `1. Find the odd word from the given alternatives.
-
-(A) Flower
-(B) Herb
-(C) Tree
+question: `1. Find the odd word from the given alternatives.<br><br>
+(A) Flower<br>
+(B) Herb<br>
+(C) Tree<br>
 (D) Shrub`,
-
 options: [
 "Flower",
 "Herb",
 "Tree",
 "Shrub"
 ],
-
 answer: 0,
-explanation: "Herb, Tree, and Shrub are types of plants. Flower is a part of a plant, not a plant category."
+explanation: `Herb, Tree, and Shrub are types of plants. Flower is a part of a plant, not a plant category.`
 },
 
 {
-question: `2. Find the odd letters from the given alternatives.
-
-(A) NOPQ
-(B) JKLM
-(C) RSTU
+question: `2. Find the odd letters from the given alternatives.<br><br>
+(A) NOPQ<br>
+(B) JKLM<br>
+(C) RSTU<br>
 (D) VWXZ`,
-
 options: [
 "NOPQ",
 "JKLM",
 "RSTU",
 "VWXZ"
 ],
-
 answer: 3,
-explanation: "NOPQ, JKLM, and RSTU are four consecutive letters. In VWXZ, Y is missing."
+explanation: `NOPQ, JKLM, and RSTU are four consecutive letters. In VWXZ, Y is missing, so it is not consecutive.`
 },
 
 {
-question: `3. Find the odd number pair from the given alternatives.
-
-(A) (34, 85)
-(B) (85, 136)
-(C) (102, 153)
+question: `3. Find the odd number pair from the given alternatives.<br><br>
+(A) (34, 85)<br>
+(B) (85, 136)<br>
+(C) (102, 153)<br>
 (D) (63, 162)`,
-
 options: [
 "(34, 85)",
 "(85, 136)",
 "(102, 153)",
 "(63, 162)"
 ],
-
 answer: 3,
-explanation: "Second number = First number + 51 in A, B, C. For (63,162), 63+51=114 (not 162)."
+explanation: `In (A), (B), and (C): second number = first number + 51.<br>
+34+51=85, 85+51=136, 102+51=153.<br>
+But 63+51=114 (not 162).`
 },
 
 {
-question: `4. If HOUSE is written as FQSUC, then how is CHAIR written in that code?
-
-(A) SBJID
-(B) DIBJS
-(C) SHBGD
-(D) AJYKP`,
-
+question: `4. If HOUSE is written as FQSUC, then how is CHAIR written in that code?`,
 options: [
 "SBJID",
 "DIBJS",
 "SHBGD",
 "AJYKP"
 ],
-
 answer: 0,
-explanation: "The code reverses the word and shifts letters."
+explanation: `The code reverses the word and shifts letters. Using the same pattern, CHAIR becomes SBJID.`
 },
 
 {
-question: `5. If P denotes ÷, Q denotes ×, R denotes + and S denotes −, find the value of:
-
-18 Q 12 P 4 R 5 S 6
-
-(A) 53
-(B) 64
-(C) 81
-(D) 24`,
-
-options: ["53", "64", "81", "24"],
+question: `5. If P denotes ÷, Q denotes ×, R denotes + and S denotes −, find the value of:<br>
+18 Q 12 P 4 R 5 S 6`,
+options: [
+"53",
+"64",
+"81",
+"24"
+],
 answer: 0,
-explanation: "18×12=216, 216÷4=54, 54+5=59, 59−6=53."
+explanation: `18×12=216, 216÷4=54, 54+5=59, 59−6=53.`
 },
 
 {
-question: `6. If 4 + 3 = 25 and 8 + 4 = 80, then 3 + 2 = ?
-
-(A) 10
-(B) 15
-(C) 13
-(D) 12`,
-
-options: ["10", "15", "13", "12"],
+question: `6. If 4 + 3 = 25 and 8 + 4 = 80, then 3 + 2 = ?`,
+options: [
+"10",
+"15",
+"13",
+"12"
+],
 answer: 2,
-explanation: "Rule is sum of squares: 3² + 2² = 9 + 4 = 13."
+explanation: `Rule is sum of squares: 3² + 2² = 9 + 4 = 13.`
 },
 
 {
-question: `7. Psychology : Human Being :: Ornithology : ?
-
-(A) Volcanoes
-(B) Birds
-(C) Insects
-(D) Reptiles`,
-
-options: ["Volcanoes", "Birds", "Insects", "Reptiles"],
+question: `7. Psychology : Human Being :: Ornithology : ?`,
+options: [
+"Volcanoes",
+"Birds",
+"Insects",
+"Reptiles"
+],
 answer: 1,
-explanation: "Ornithology studies birds."
+explanation: `Psychology studies human beings. Ornithology studies birds.`
 },
 
 {
-question: `8. EGIK : FHJL :: MOQS : ?
-
-(A) NPRT
-(B) LNOQ
-(C) KMOQ
-(D) NRPT`,
-
-options: ["NPRT", "LNOQ", "KMOQ", "NRPT"],
+question: `8. EGIK : FHJL :: MOQS : ?`,
+options: [
+"NPRT",
+"LNOQ",
+"KMOQ",
+"NRPT"
+],
 answer: 0,
-explanation: "Each letter increases by +1."
+explanation: `Each letter increases by +1.`
 },
 
 {
-question: `9. 147 : 741 :: 869 : ?
-
-(A) 968
-(B) 896
-(C) 689
-(D) 986`,
-
-options: ["968", "896", "689", "986"],
+question: `9. 147 : 741 :: 869 : ?`,
+options: [
+"968",
+"896",
+"689",
+"986"
+],
 answer: 0,
-explanation: "Reverse digits → 968."
+explanation: `Reverse digits → 968.`
 },
 
 {
-question: `10. Select the missing number.
-8   32   4
-7   ?    5
-2   6    3
-
-(A) 35
-(B) 30
-(C) 20
-(D) 25`,
-
-options: ["35", "30", "20", "25"],
+question: `10. Missing number:<br>
+8 32 4<br>
+7 ? 5<br>
+2 6 3`,
+options: [
+"35",
+"30",
+"20",
+"25"
+],
 answer: 0,
-explanation: "Middle = Left × Right (7×5 = 35)."
+explanation: `Middle = Left × Right (7×5 = 35).`
 },
 
 {
-question: `11. Ramesh starts his journey by walking 2 km towards North. Then he takes a right turn and walks 1 km. Again takes a right turn and walks 2 km. Now which direction is he facing?
-
-(A) West
-(B) South
-(C) East
-(D) North`,
-
-options: ["West", "South", "East", "North"],
-answer: 1,
-explanation: "North → East → South."
-},
-
-{
-question: `12. Which figure represents the relationship: Birds, Parrots, Bats?
-
-Parrots inside Birds; Bats separate.`,
-
-options: ["A", "B", "C", "D"],
-answer: 2,
-explanation: "Parrots are subset of Birds; Bats are not birds."
-},
-
-{
-question: `13. Complete the letter series:
-
-sr_tr_srs_r_srst`,
-
-options: ["tsrtsr", "ttssrr", "strtrs", "tstttr"],
-answer: 0,
-explanation: "Repeating pattern: s, r, t."
-},
-
-{
-question: `14. Find the missing number in the series:
-
-43, 172, 86, 344, ?`,
-
-options: ["258", "172", "129", "430"],
-answer: 1,
-explanation: "×4, ÷2 pattern → next is 172."
-},
-
-{
-question: `15. Select the word which cannot be formed from the letters of "CHRONOLOGICAL".
-
-(A) LOGIC
-(B) CALL
-(C) CALICO
-(D) ANALOGY`,
-
-options: ["LOGIC", "CALL", "CALICO", "ANALOGY"],
-answer: 3,
-explanation: "Letter Y is not present in CHRONOLOGICAL."
-}
-
-];
-
-// LOAD QUESTIONS
-let form = document.getElementById("quizForm");
-let resultBox = document.getElementById("result");
-
-window.onload = function() {
-    loadQuestions();
-    startTimer();
-};
-
-function loadQuestions() {
-    form.innerHTML = "";
-    questions.forEach((q, index) => {
-        let div = document.createElement("div");
-        div.classList.add("question");
-        div.innerHTML = `<p>${q.question}</p>`;
-        q.options.forEach((option, i) => {
-            div.innerHTML += `
-            <label>
-                <input type="radio" name="q${index}" value="${i}">
-                ${option}
-            </label><br>`;
-        });
-        form.appendChild(div);
-    });
-}
-
-// TIMER (12 minutes)
-function startTimer() {
-    timerDisplay.innerText = timeLeft;
-    timerInterval = setInterval(() => {
-        timeLeft--;
-        timerDisplay.innerText = timeLeft;
-        if (timeLeft <= 0) {
-            clearInterval(timerInterval);
-            submitQuiz();
-        }
-    }, 1000);
-}
-
-// SUBMIT QUIZ
-function submitQuiz() {
-    clearInterval(timerInterval);
-
-    let score = 0;
-    let correct = 0;
-    let wrong = 0;
-    let notAnswered = 0;
-
-    resultBox.innerHTML = "";
-
-    questions.forEach((q, index) => {
-        let selected = document.querySelector(`input[name="q${index}"]:checked`);
-        let result = document.createElement("div");
-        result.classList.add("question");
-
-        if (!selected) {
-            notAnswered++;
-            result.innerHTML = `
-                <p style="color:orange;"><b>Not Answered</b></p>
-                <p><b>Correct Answer:</b> ${q.options[q.answer]}</p>
-                <p><b>Explanation:</b> ${q.explanation}</p>
-            `;
-        }
-        else if (parseInt(selected.value) === q.answer) {
-            score++;
-            correct++;
-            result.innerHTML = `
-                <p style="color:green;"><b>✔ Correct</b></p>
-            `;
-        }
-        else {
-            wrong++;
-            result.innerHTML = `
-                <p style="color:red;"><b>✘ Wrong</b></p>
-                <p><b>Correct Answer:</b> ${q.options[q.answer]}</p>
-                <p><b>Explanation:</b> ${q.explanation}</p>
-            `;
-        }
-
-        resultBox.appendChild(result);
-    });
-
-    resultBox.innerHTML =
-        `<h3>Final Score: ${score} / ${questions.length}</h3>
-         <p>✔ Correct: ${correct}</p>
-         <p>✘ Wrong: ${wrong}</p>
-         <p>⭕ Not Answered: ${notAnswered}</p>` +
-         resultBox.innerHTML;
-}
-
-</script>
-</body>
-</html>
+question: `11. Direction after North → right → right`,
+opt
