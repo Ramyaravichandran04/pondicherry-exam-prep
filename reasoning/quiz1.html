@@ -149,16 +149,17 @@ explanation: "The letter Y is not present in CHRONOLOGICAL."
 const quizDiv = document.getElementById("quiz");
 let totalTime = questions.length * 60;
 
-// Render questions
+// Render questions (only questions)
 questions.forEach((item, index) => {
     let html = `<div class='question'>
         <p><b>${item.q}</b></p>`;
-    item.options.forEach(opt => {
-        html += `<label>
-            <input type='radio' name='q${index}' value='${opt}'> ${opt}
-        </label><br>`;
-    });
-    html += `<div id='result${index}' class='result'></div></div>`;
+    html += `
+        <label><input type='radio' name='q${index}' value='A'> A</label><br>
+        <label><input type='radio' name='q${index}' value='B'> B</label><br>
+        <label><input type='radio' name='q${index}' value='C'> C</label><br>
+        <label><input type='radio' name='q${index}' value='D'> D</label><br>
+        <div id='result${index}' class='result'></div>
+    </div>`;
     quizDiv.innerHTML += html;
 });
 
@@ -179,7 +180,7 @@ function updateTimer() {
 
 setInterval(updateTimer, 1000);
 
-// Submit and show answers
+// Submit test and show answers after completion
 function submitTest() {
     let score = 0;
     let answerHTML = "<h3>Answers & Explanation</h3>";
@@ -194,7 +195,7 @@ function submitTest() {
             result.textContent = "✔ Correct";
             result.style.color = "green";
         } else {
-            result.textContent = `✖ Wrong. Correct: ${item.answer}`;
+            result.textContent = `✖ Wrong`;
             result.style.color = "red";
         }
 
