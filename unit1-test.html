@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Unit 1 Test - World War I</title>
+<title>Unit 1 Test - Outbreak of World War I and Its Aftermath</title>
 <style>
 body {
     font-family: Arial, sans-serif;
@@ -23,7 +23,7 @@ button {
 </head>
 <body>
 
-<h2>Unit 1 - Outbreak of World War I and Its Aftermath</h2>
+<h2>UNIT 1 – OUTBREAK OF WORLD WAR I AND ITS AFTERMATH</h2>
 <div class="timer">Time Left: <span id="time"></span> seconds</div>
 
 <form id="quizForm"></form>
@@ -35,119 +35,172 @@ button {
 <script>
 
 const questions = [
+
 {
-question: "Three empires shattered after WWI:",
-options: ["Germany, Austria-Hungary, Ottomans", "Germany, Russia, Italy", "Spain, Portugal, Italy", "France, Austria, Germany"],
+question: `1. Consider the following statements regarding the aftermath of WWI:<br>
+1. The three major empires that shattered after the war were the German, Austro-Hungarian, and Ottoman Empires.<br>
+2. Russia was expelled from the League of Nations for its attack on Finland.<br>
+3. The "Sick Man of Europe" was a term used to describe the German Empire.<br>
+Which of the statements given above are CORRECT?`,
+options: [
+"1 and 2 only",
+"2 and 3 only",
+"1 and 3 only",
+"1, 2, and 3"
+],
+answer: 0,
+note: "The Ottoman Empire was known as the 'Sick Man of Europe', not the German Empire."
+},
+
+{
+question: `2. Which of the following statements regarding the Rise of Japan is INCORRECT?`,
+options: [
+"Japan forced a war on China in the year 1894.",
+"The Anglo-Japanese Alliance was signed in 1902.",
+"The Russo-Japanese War (1904-05) made Japan a Great Power.",
+"Japan was the last country to resign from the League of Nations."
+],
+answer: 3,
+note: "Japan was actually the FIRST to resign from the League of Nations (1933)."
+},
+
+{
+question: `3. Match the Treaties/Events (List I) with the participating Nations/Locations (List II):<br>
+i. Treaty of Brest-Litovsk - a. Albania created<br>
+ii. Treaty of London (1913) - b. Russia and Germany<br>
+iii. Hall of Mirrors - c. Turkey<br>
+iv. Treaty of Sevres - d. Versailles`,
+options: [
+"i-b, ii-a, iii-d, iv-c",
+"i-a, ii-b, iii-c, iv-d",
+"i-b, ii-d, iii-a, iv-c",
+"i-c, ii-a, iii-d, iv-b"
+],
 answer: 0
 },
+
 {
-question: "“Imperialism is highest stage of capitalism”:",
-options: ["Lenin", "Marx", "Mao", "Sun Yat Sen"],
+question: `4. Match the Military Terms/Leaders (List I) with their specific details (List II):<br>
+i. Battle of Marne - a. Turkey<br>
+ii. Kemal Pasha - b. Trench Warfare<br>
+iii. Emden - c. England<br>
+iv. Jingoism - d. Bombarded Madras`,
+options: [
+"i-b, ii-a, iii-d, iv-c",
+"i-a, ii-b, iii-c, iv-d",
+"i-b, ii-c, iii-a, iv-d",
+"i-d, ii-a, iii-b, iv-c"
+],
 answer: 0
 },
+
 {
-question: "Battle of Marne known for:",
-options: ["Air warfare", "Trench warfare", "Submarine warfare", "Ship warfare"],
+question: `5. "Imperialism is the highest stage of capitalism"—who famously made this observation?`,
+options: [
+"Karl Marx",
+"Sun Yat-Sen",
+"Vladimir Lenin",
+"Joseph Stalin"
+],
+answer: 2
+},
+
+{
+question: `6. Who provided the famous revolutionary slogan "Bread, Peace, and Land"?`,
+options: [
+"Leon Trotsky",
+"Vladimir Lenin",
+"Georges Clemenceau",
+"Woodrow Wilson"
+],
 answer: 1
 },
+
 {
-question: "First Secretary General:",
-options: ["Britain", "France", "USA", "Netherlands"],
+question: `7. Who represented France as the Prime Minister during the Paris Peace Conference of 1919?`,
+options: [
+"David Lloyd George",
+"Vittorio Orlando",
+"Georges Clemenceau",
+"Winston Churchill"
+],
+answer: 2
+},
+
+{
+question: `8. Assertion (A): The first European attempts to carve out colonies in Africa resulted in bloody battles.<br>
+Reason (R): There was stiff resistance from the native population.`,
+options: [
+"Both A and R are correct and R is the correct explanation of A.",
+"Both A and R are correct but R is NOT the correct explanation of A.",
+"A is correct but R is wrong.",
+"A is wrong but R is correct."
+],
 answer: 0
 },
+
 {
-question: "Expelled for attacking Finland:",
-options: ["Germany", "Russia", "Italy", "France"],
-answer: 1
-},
-{
-question: "Albania created by Treaty of:",
-options: ["Versailles", "London", "Brest-Litovsk", "Bucharest"],
-answer: 1
-},
-{
-question: "Mixed population in Balkans:",
-options: ["Albania", "Macedonia", "Serbia", "Bulgaria"],
-answer: 1
-},
-{
-question: "Tannenberg losses:",
-options: ["Germany", "Russia", "France", "Britain"],
-answer: 1
-},
-{
-question: "France PM in Paris Conference:",
-options: ["Wilson", "Lloyd George", "Clemenceau", "Orlando"],
-answer: 2
-},
-{
-question: "Which of the following is correct? i. Turkish Empire contained non-Turkish people ii. Turkey fought with Central Powers iii. Turkey tried to attack Suez Canal",
-options: ["i, ii and iii are correct", "i and ii are correct", "i and iii are correct", "ii and iii are correct"],
+question: `9. Assertion (A): In the Battle of Tannenberg, Russia suffered heavy losses.<br>
+Reason (R): Russia was ill-equipped and failed to coordinate its armies against the German forces.`,
+options: [
+"Both A and R are correct and R is the correct explanation of A.",
+"Both A and R are correct but R is NOT the correct explanation of A.",
+"A is correct but R is wrong.",
+"A is wrong but R is correct."
+],
 answer: 0
 },
+
 {
-question: "Treaty of Brest-Litovsk:",
-options: ["Russia–Germany", "France–Germany", "Turkey–Britain", "Austria–Italy"],
+question: `10. Arrange the following Treaties in the correct Chronological Order (First to Last):<br>
+1. Locarno Treaty<br>
+2. Triple Alliance<br>
+3. Anglo-Japanese Alliance<br>
+4. Treaty of Versailles`,
+options: [
+"2 — 3 — 4 — 1",
+"1 — 2 — 3 — 4",
+"3 — 2 — 1 — 4",
+"2 — 1 — 3 — 4"
+],
 answer: 0
-},
-{
-question: "Jingoism:",
-options: ["Germany", "France", "England", "Italy"],
-answer: 2
-},
-{
-question: "Kemal Pasha:",
-options: ["Russia", "Turkey", "Germany", "France"],
-answer: 1
-},
-{
-question: "Emden bombarded:",
-options: ["Calcutta", "Bombay", "Madras", "Karachi"],
-answer: 2
-},
-{
-question: "Hall of Mirrors:",
-options: ["Geneva", "London", "Versailles", "Hague"],
-answer: 2
-},
-{
-question: "The slogan “Bread, Peace and Land” was given by:",
-options: ["Trotsky", "Lenin", "Stalin", "Kerensky"],
-answer: 1
-},
-{
-question: "The Treaty of Sevres was signed with:",
-options: ["Germany", "Turkey", "Austria", "Hungary"],
-answer: 1
-},
-{
-question: "League of Nations headquarters was at:",
-options: ["Paris", "London", "Geneva", "Brussels"],
-answer: 2
-},
-{
-question: "Leader who withdrew Germany from League of Nations in 1933:",
-options: ["Benito Mussolini", "Joseph Stalin", "Adolf Hitler", "Winston Churchill"],
-answer: 2
 }
+
 ];
 
-// ===== VARIABLES =====
-let form, resultBox, timerDisplay;
+let form = document.getElementById("quizForm");
+let resultBox = document.getElementById("result");
+let timerDisplay = document.getElementById("time");
+
 let timerInterval;
-let totalTime = questions.length * 10;
+let totalTime = questions.length * 10;   // 10 seconds per question
 let timeLeft = totalTime;
 
-// ===== LOAD QUESTIONS =====
+window.onload = function() {
+
+    let isTakingTest = sessionStorage.getItem("inProgress1");
+    let storedData = localStorage.getItem("unit1Result");
+
+    if(isTakingTest === "true"){
+        loadQuestions();
+        timeLeft = totalTime;
+        startTimer();
+    }
+    else if(storedData){
+        showPreviousAttempt();
+    }
+    else{
+        loadQuestions();
+        startTimer();
+    }
+};
+
 function loadQuestions(){
     form.innerHTML = "";
-
     questions.forEach((q, index) => {
         let div = document.createElement("div");
         div.classList.add("question");
-
-        div.innerHTML = `<p>${index+1}. ${q.question}</p>`;
-
+        div.innerHTML = `<p>${q.question}</p>`;
         q.options.forEach((option, i) => {
             div.innerHTML += `
             <label>
@@ -155,19 +208,15 @@ function loadQuestions(){
                 ${option}
             </label><br>`;
         });
-
         form.appendChild(div);
     });
 }
 
-// ===== START TIMER =====
 function startTimer(){
     timerDisplay.innerText = timeLeft;
-
     timerInterval = setInterval(()=>{
         timeLeft--;
         timerDisplay.innerText = timeLeft;
-
         if(timeLeft <= 0){
             clearInterval(timerInterval);
             submitQuiz();
@@ -175,10 +224,9 @@ function startTimer(){
     },1000);
 }
 
-// ===== SUBMIT QUIZ =====
 function submitQuiz(){
 
-    sessionStorage.removeItem("inProgress");
+    sessionStorage.removeItem("inProgress1");
     clearInterval(timerInterval);
 
     let score = 0;
@@ -192,24 +240,36 @@ function submitQuiz(){
         let selectedValue = selected ? parseInt(selected.value) : null;
 
         let questionDiv = document.getElementsByClassName("question")[index];
+        let oldResult = questionDiv.querySelector(".answerResult");
+        if(oldResult) oldResult.remove();
 
         let resultText = document.createElement("div");
+        resultText.classList.add("answerResult");
 
         if(selectedValue === null){
             notAnsweredCount++;
-            resultText.innerHTML = `<p style="color:orange;"><b>Not Answered</b></p>
-                                    <p><b>Correct Answer:</b> ${q.options[q.answer]}</p>`;
+            resultText.innerHTML = `
+                <p style="color:orange;"><b>Not Answered</b></p>
+                <p><b>Correct Answer:</b> ${q.options[q.answer]}</p>
+                ${q.note ? `<p style="color:blue;"><b>Note for Revision:</b> ${q.note}</p>` : ""}
+            `;
         }
         else if(selectedValue === q.answer){
             score += 1;
             correctCount++;
-            resultText.innerHTML = `<p style="color:green;"><b>✔ Correct (+1)</b></p>`;
+            resultText.innerHTML = `
+                <p style="color:green;"><b>✔ Correct (+1)</b></p>
+                ${q.note ? `<p style="color:blue;"><b>Note for Revision:</b> ${q.note}</p>` : ""}
+            `;
         }
         else{
             score -= 0.25;
             wrongCount++;
-            resultText.innerHTML = `<p style="color:red;"><b>✘ Wrong (-0.25)</b></p>
-                                    <p><b>Correct Answer:</b> ${q.options[q.answer]}</p>`;
+            resultText.innerHTML = `
+                <p style="color:red;"><b>✘ Wrong (-0.25)</b></p>
+                <p><b>Correct Answer:</b> ${q.options[q.answer]}</p>
+                ${q.note ? `<p style="color:blue;"><b>Note for Revision:</b> ${q.note}</p>` : ""}
+            `;
         }
 
         questionDiv.appendChild(resultText);
@@ -227,71 +287,33 @@ function submitQuiz(){
         </div>
     `;
 
-    let storedData = localStorage.getItem("unit1Result");
-    let resultData = storedData ? JSON.parse(storedData) : { attempts: [] };
-
-    resultData.attempts.push({
-        score: score,
-        correct: correctCount,
-        wrong: wrongCount,
-        notAnswered: notAnsweredCount
-    });
-
-    localStorage.setItem("unit1Result", JSON.stringify(resultData));
+    localStorage.setItem("unit1Result", JSON.stringify({
+        score, correctCount, wrongCount, notAnsweredCount
+    }));
 }
 
-// ===== REATTEMPT =====
 function reattempt(){
-    sessionStorage.setItem("inProgress", "true");
+    sessionStorage.setItem("inProgress1", "true");
     location.reload();
 }
 
-// ===== SHOW PREVIOUS ATTEMPT =====
 function showPreviousAttempt(){
 
     let data = JSON.parse(localStorage.getItem("unit1Result"));
-    let lastAttempt = data.attempts[data.attempts.length - 1];
-
+    loadQuestions();
     timerDisplay.innerText = "Completed";
 
     resultBox.innerHTML = `
         <div style="background:#f0f0f0; padding:15px; margin-bottom:20px;">
-            <h3>Final Score: ${lastAttempt.score} / ${questions.length}</h3>
-            <p>✔ Correct: ${lastAttempt.correct}</p>
-            <p>✘ Wrong: ${lastAttempt.wrong}</p>
-            <p>⭕ Not Answered: ${lastAttempt.notAnswered}</p>
-            <p><b>Total Attempts:</b> ${data.attempts.length}</p>
+            <h3>Final Score: ${data.score} / ${questions.length}</h3>
+            <p>✔ Correct: ${data.correctCount}</p>
+            <p>✘ Wrong: ${data.wrongCount}</p>
+            <p>⭕ Not Answered: ${data.notAnsweredCount}</p>
             <button onclick="reattempt()">Reattempt Test</button>
         </div>
     `;
 }
 
-// ===== INITIALIZE AFTER PAGE LOAD =====
-window.onload = function(){
-
-    form = document.getElementById("quizForm");
-    resultBox = document.getElementById("result");
-    timerDisplay = document.getElementById("time");
-
-    let isTakingTest = sessionStorage.getItem("inProgress");
-    let storedData = localStorage.getItem("unit1Result");
-
-    if(isTakingTest === "true"){
-        loadQuestions();
-        timeLeft = totalTime;
-        startTimer();
-    }
-    else if(storedData){
-        showPreviousAttempt();
-    }
-    else{
-        loadQuestions();
-        startTimer();
-    }
-
-};
-
 </script>
-
 </body>
 </html>
