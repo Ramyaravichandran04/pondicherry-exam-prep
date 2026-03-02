@@ -183,8 +183,15 @@ let totalTime = questions.length * 10;
 let timeLeft = totalTime;
 
 window.onload = function() {
-    loadQuestions();
-    startTimer();
+
+    let testCompleted = localStorage.getItem("unit1Completed");
+
+    if(testCompleted === "true"){
+        showLockedMessage();
+    } else {
+        loadQuestions();
+        startTimer();
+    }
 };
 
 function loadQuestions(){
@@ -230,50 +237,46 @@ function submitQuiz(){
         let selected = document.querySelector(`input[name="q${index}"]:checked`);
         let selectedValue = selected ? parseInt(selected.value) : null;
 
-        let questionDiv = document.getElementsByClassName("question")[index];
-        let oldResult = questionDiv.querySelector(".answerResult");
-        if(oldResult) oldResult.remove();
-
-        let resultText = document.createElement("div");
-        resultText.classList.add("answerResult");
-
         if(selectedValue === null){
             notAnsweredCount++;
-            resultText.innerHTML = `
-                <p style="color:orange;"><b>Not Answered</b></p>
-                <p><b>Correct Answer:</b> ${q.options[q.answer]}</p>
-                ${q.note ? `<p style="color:blue;"><b>Note for Revision:</b> ${q.note}</p>` : ""}
-            `;
         }
         else if(selectedValue === q.answer){
             score += 1;
             correctCount++;
-            resultText.innerHTML = `
-                <p style="color:green;"><b>✔ Correct (+1)</b></p>
-                ${q.note ? `<p style="color:blue;"><b>Note for Revision:</b> ${q.note}</p>` : ""}
-            `;
         }
         else{
             score -= 0.25;
             wrongCount++;
-            resultText.innerHTML = `
-                <p style="color:red;"><b>✘ Wrong (-0.25)</b></p>
-                <p><b>Correct Answer:</b> ${q.options[q.answer]}</p>
-                ${q.note ? `<p style="color:blue;"><b>Note for Revision:</b> ${q.note}</p>` : ""}
-            `;
         }
-
-        questionDiv.appendChild(resultText);
     });
 
     score = score.toFixed(2);
 
     resultBox.innerHTML = `
-        <div style="background:#f0f0f0; padding:15px; margin-bottom:20px;">
+        <div style="background:#f0f0f0; padding:15px;">
             <h3>Final Score: ${score} / ${questions.length}</h3>
             <p>✔ Correct: ${correctCount}</p>
             <p>✘ Wrong: ${wrongCount}</p>
             <p>⭕ Not Answered: ${notAnsweredCount}</p>
+            <p style="color:red;"><b>Test Submitted Successfully.</b></p>
+        </div>
+    `;
+
+    form.innerHTML = "";
+    timerDisplay.innerText = "Completed";
+
+    localStorage.setItem("unit1Completed", "true");
+}
+
+function showLockedMessage(){
+
+    form.innerHTML = "";
+    timerDisplay.innerText = "Completed";
+
+    resultBox.innerHTML = `
+        <div style="background:#ffe0e0; padding:15px;">
+            <h3 style="color:red;">Test Already Submitted</h3>
+            <p>This is a one-time test. Reattempt is not allowed.</p>
         </div>
     `;
 }
