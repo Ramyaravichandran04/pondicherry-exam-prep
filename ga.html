@@ -336,7 +336,10 @@ function handleAction(action, lessonName) {
    else if(std == "10" && lessonName === "Laws of Motion") {
     window.location.href = "science_unit1_laws_of_motion.html";
 }
-    else {
+   else if(std == "10" && lessonName === "Optics") {
+        window.location.href = "science_unit2_optics.html";
+    } 
+   else {
         alert("Study Material Coming Soon");
     }
 
@@ -355,6 +358,9 @@ console.log("Lesson:", lessonName);
        else if(std == "10" && lessonName === "Laws of Motion") {
     window.location.href = "science_unit1_laws_of_motion_test.html";
 }
+       else if(std == "10" && lessonName === "Optics") {
+        window.location.href = "science_unit2_optics_test.html";
+    }   
         else {
             alert("Take Test - Coming Soon");
         }
